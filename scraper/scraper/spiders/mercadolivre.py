@@ -4,7 +4,7 @@ class MercadolivreSpider(scrapy.Spider):
     name = "mercadolivre"
     start_urls = ["https://lista.mercadolivre.com.br/veiculos"]
     page_count = 1
-    max_pages = 45
+    max_pages = 100
 
     def parse(self, response):
         self.log(f'Parsing page {self.page_count}')
@@ -30,22 +30,30 @@ class MercadolivreSpider(scrapy.Spider):
 
         detalhes = response.css('table.andes-table')
 
-        ano = detalhes.xpath('.//th[div[contains(text(), "Ano")]]/following-sibling::td/span/text()').get()
-        km = detalhes.xpath('.//th[div[contains(text(), "Quilômetros")]]/following-sibling::td/span/text()').get()
-        tipo_combustivel = detalhes.xpath('.//th[div[contains(text(), "Tipo de combustível")]]/following-sibling::td/span/text()').get()
-        transmissao = detalhes.xpath('.//th[div[contains(text(), "Transmissão")]]/following-sibling::td/span/text()').get()
-        motor = detalhes.xpath('.//th[div[contains(text(), "Motor")]]/following-sibling::td/span/text()').get()
-        ar_condicionado = detalhes.xpath('.//th[div[contains(text(), "Ar-condicionado")]]/following-sibling::td/span/text()').get()
+        ano = detalhes.xpath('.//th[div[contains(text(), "Ano")]]/following-sibling::td/span/text()').get() 
+        km = detalhes.xpath('.//th[div[contains(text(), "Quilômetros")]]/following-sibling::td/span/text()').get()[:-4] 
+        tipo_combustivel = detalhes.xpath('.//th[div[contains(text(), "Tipo de combustível")]]/following-sibling::td/span/text()').get() 
+        transmissao = detalhes.xpath('.//th[div[contains(text(), "Transmissão")]]/following-sibling::td/span/text()').get() 
+        motor = detalhes.xpath('.//th[div[contains(text(), "Motor")]]/following-sibling::td/span/text()').get() 
+        ar_condicionado = detalhes.xpath('.//th[div[contains(text(), "Ar-condicionado")]]/following-sibling::td/span/text()').get() 
+        cor = detalhes.xpath('.//th[div[contains(text(), "Cor")]]/following-sibling::td/span/text()').get() 
+        Portas = detalhes.xpath('.//th[div[contains(text(), "Portas")]]/following-sibling::td/span/text()').get() 
+        direcao = detalhes.xpath('.//th[div[contains(text(), "Direção")]]/following-sibling::td/span/text()').get() 
+        vidros_eletricos  = detalhes.xpath('.//th[div[contains(text(), "Vidros elétricos")]]/following-sibling::td/span/text()').get() 
 
         yield {
             'modelo': modelo,
             'valor': valor,
             'ano': ano,
             'KM': km,
-            'local': local,
             'tipo_combustivel': tipo_combustivel,
             'transmissao': transmissao,
             'motor': motor,
             'ar_condicionado': ar_condicionado,
+            'cor': cor,
+            'Portas': Portas,
+            'direcao': direcao,
+            'vidros_eletricos': vidros_eletricos,
+            'local': local,
             'link': link
         }
