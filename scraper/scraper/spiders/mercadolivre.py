@@ -4,7 +4,7 @@ class MercadolivreSpider(scrapy.Spider):
     name = "mercadolivre"
     start_urls = ["https://lista.mercadolivre.com.br/veiculos"]
     page_count = 1
-    max_pages = 42
+    max_pages = 50
 
     def parse(self, response):
         self.log(f'Parsing page {self.page_count}')
@@ -49,4 +49,3 @@ class MercadolivreSpider(scrapy.Spider):
             'ar_condicionado': ar_condicionado,
             'link': link
         }
-
