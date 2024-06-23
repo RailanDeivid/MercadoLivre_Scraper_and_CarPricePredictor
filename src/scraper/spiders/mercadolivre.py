@@ -11,18 +11,28 @@ class MercadolivreSpider(scrapy.Spider):
                     'chery', 'citroen', 'dodge', 'jac', 'jaguar', 'kia', 'lexus', 'mini', 'mercedes-benz', 'land-rover', 'lifan',
                     'peugeot', 'subaru', 'suzuki', 'toyota', 'volvo']
     
-    listas_UF = ['ceara', 'distrito-federal', 'goias', 'mato-grosso', 'minas-gerais', 'parana', 'para', 'pernambuco', 
-                 'rio-de-janeiro', 'sao-paulo', 'santa-catarina', 'rio-grande-do-sul']
+    listas_UF = ['ceara', 'distrito-federal', 'goias', 'mato-grosso', 'minas-gerais', 'parana', 'para', 'pernambuco',
+                 'rio-de-janeiro', 'sao-paulo', 'santa-catarina', 'rio-grande-do-sul', 'tocantins', 'alagoa', 'amazonas', 'goias', 
+                 'bahia','maranhao', 'mato-grosso-do-sul', 'piaui', 'paraiba', 'rio-grande-do-norte', 'sergipe', 'espirito-santo']
 
-    start_urls = [f"https://lista.mercadolivre.com.br/veiculos/carros-caminhonetes/{marca}-em-{uf}/" for marca in lista_marcas for uf in listas_UF]
+    start_urls = []
+
+    def __init__(self):
+        for marca in self.lista_marcas:
+            for uf in self.listas_UF:
+                url = f"https://lista.mercadolivre.com.br/veiculos/carros-caminhonetes/{marca}-em-{uf}/"
+                self.start_urls.append(url)
     
     page_count = 1
     max_pages = 42
 
     def parse(self, response):
         anuncios = response.css('div.ui-search-result__content')
-        marca = response.url.split('/')[-2].split('-')[0]
-        uf = response.url.split('/')[-1].split('-')[0]
+        url_parts = response.url.split('/')
+        marca = url_parts[-2].split('-')[0]
+        uf = '-'.join(url_parts[-2].split('-')[2:])
+        # marca = response.url.split('/')[-2].split('-')[0]
+        # uf = response.url.split('/')[-2].split('-')[2]
 
         for anuncio in anuncios:
             data_coleta = datetime.now().date()
