@@ -89,3 +89,5 @@ class MercadolivreSpider(scrapy.Spider):
             'link': link,
             'data_coleta': data_coleta
         }
+
+# scrapy crawl mercadolivre -o ../data/data.jsonl
