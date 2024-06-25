@@ -57,6 +57,7 @@ df['KM'] = pd.to_numeric(df['KM'], errors='coerce')
 modelo_km_media = df.groupby('modelo')['KM'].mean()
 # Preenche os valores ausentes na coluna KM com a média correspondente ao modelo
 df['KM'] = df.apply(lambda row: modelo_km_media[row['modelo']] if pd.isnull(row['KM']) else row['KM'], axis=1)
+df = df.dropna(subset=['KM'])
 
 # modelo_ano = df.dropna(subset=['ano']).drop_duplicates('modelo').set_index('modelo')['ano'].to_dict()
 # # preenchendo os valores ausentes na coluna 'ano' com base no mapeamento dos modelos e seus anos
@@ -76,8 +77,8 @@ def extrair_uf(local):
 
 # Preenche os valores vazios da coluna 'uf' com base na coluna 'local'
 df['uf'] = df.apply(lambda row: extrair_uf(row['local']) if row['uf'] == '' else row['uf'], axis=1)
-
-lista_map = {
+# Ajustando nomes 
+lista_map_uf = {
     'ceara': 'CE',
     'distrito-federal': 'DF',
     'goias': 'GO',
@@ -124,21 +125,53 @@ lista_map = {
     'em-rio-grande-do-norte': 'RN'
 }
 
-df['uf'] = df['uf'].map(lista_map)
+df['uf'] = df['uf'].map(lista_map_uf)
 
 # ----------------------------------------------------------------- coluna: tipo_combustivel
-
+# Ajustando nomes 
+lista_map_combustivel = {
+    'Gasolina e álcool': 'flex',
+    'Gasolina': 'gasolina',
+    'Gasolina-Álcool e gás natural': 'flex',
+    'Diesel': 'diesel',
+    'Flex': 'flex',
+    'Álcool e gás natural': 'flex',
+    'Híbrido': 'híbrido',
+    'Tetra-combustible': 'outros',
+    'Elétrico': 'elétrico',
+    'Gasolina e gás natural': 'gasolina e gás natural',
+    'Álcool': 'álcool',
+    'Gasolina e elétrico': 'híbrido',
+    'Híbrido/Gasolina': 'híbrido',
+    'FLEX': 'flex',
+}
+df['tipo_combustivel'] = df['tipo_combustivel'].map(lista_map_combustivel)
 
 # ----------------------------------------------------------------- coluna: motor
 # Usando expressão regular para extrair apenas os números
 df['motor'] = df['motor'].str.extract(r'(\d+\.\d+|\d+)')[0]
-
+df = df.loc[df['motor'] != '0.0']
 # ----------------------------------------------------------------- coluna: ar_condicionado
-
+# Substituindo dados null pra 'Sim'
+df['ar_condicionado'] = df['ar_condicionado'].fillna('Sim')
 
 # ----------------------------------------------------------------- coluna: vidros_eletricos
+# Substituindo dados null pra 'Sim'
+df['vidros_eletricos'] = df['vidros_eletricos'].fillna('Não')
 
+# ----------------------------------------------------------------- coluna: transmissao
+# Ajustando nomes 
+lista_map_transmissao = {
+    'Manual': 'Manual',
+    'Automática': 'Automática',
+    'Automática sequencial': 'Automática',
+    'Semiautomática': 'Semiautomática',
+    'AUTOMÁTICO': 'Automática',
+    'Automatizado': 'Automática',
+    'Automático': 'Automática',
 
+}
+df['transmissao'] = df['transmissao'].map(lista_map_transmissao)
 
 
 # --------------------------------------------------------------- Tratamento de tipos de colunas
