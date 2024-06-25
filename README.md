@@ -6,36 +6,6 @@ Este projeto realiza web scraping de anúncios de veículos no Mercado Livre e p
 
 ## Estrutura do Projeto
 
-MercadoLivre_Scraper_and_CarPricePredictor/
-│
-├── .venv/ # Ambiente virtual Python
-├── data/ # Dados utilizados no projeto
-│ ├── data_tratados.parquet
-│ ├── data.jsonl
-│ └── ML_db.db
-│
-├── src/ # Código fonte do projeto
-│ ├── analysis/
-│ │ └── EDA.ipynb # Análise Exploratória dos Dados
-│ │
-│ ├── data_transformation/
-│ │ └── main.py # Transformação dos dados
-│ │
-│ ├── models/ # Modelos de Machine Learning
-│ │
-│ └── scraper/
-│ ├── spiders/
-│ │ ├── init.py
-│ │ ├── mercadolivre.py # Scraper do Mercado Livre
-│ │
-│ ├── init.py
-│ ├── items.py
-│ └── settings.py
-│
-├── streamlit_app/ # Aplicação Streamlit
-│
-├── scrapy.cfg # Configuração do Scrapy
-└── README.md # Documentação do projeto
 
 
 ## Instalação
