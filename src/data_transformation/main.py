@@ -20,6 +20,7 @@ df['ano'] = df.groupby('modelo')['ano'].transform(lambda x: x.ffill().bfill())
 df['direcao'] = df.groupby('modelo')['direcao'].transform(lambda x: x.ffill().bfill())
 df['portas'] = df.groupby('modelo')['portas'].transform(lambda x: x.ffill().bfill())
 df['ar_condicionado'] = df.groupby('modelo')['ar_condicionado'].transform(lambda x: x.ffill().bfill())
+df['vidros_eletricos'] = df.groupby('modelo')['ar_condicionado'].transform(lambda x: x.ffill().bfill())
 df['transmissao'] = df.groupby('modelo')['transmissao'].transform(lambda x: x.ffill().bfill())
 df['tipo_combustivel'] = df.groupby('modelo')['tipo_combustivel'].transform(lambda x: x.ffill().bfill())
 df['motor'] = df.groupby('modelo')['motor'].transform(lambda x: x.ffill().bfill())
@@ -151,6 +152,7 @@ df['tipo_combustivel'] = df['tipo_combustivel'].map(lista_map_combustivel)
 # Usando expressão regular para extrair apenas os números
 df['motor'] = df['motor'].str.extract(r'(\d+\.\d+|\d+)')[0]
 df = df.loc[df['motor'] != '0.0']
+df = df.dropna(subset=['motor'])
 # ----------------------------------------------------------------- coluna: ar_condicionado
 # Substituindo dados null pra 'Sim'
 df['ar_condicionado'] = df['ar_condicionado'].fillna('Sim')
