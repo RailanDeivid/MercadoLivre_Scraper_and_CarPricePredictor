@@ -33,7 +33,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - ``Scrapy``
 - ``scikit-learn``
 
-## 📁 Acesso aoo do  arquivos projeto
+## 📁 Acesso aos do  arquivos projeto
 Você pode acessar os arquivos do projeto:
 
 Scrape dos dados: [Mercadolivre.py](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/scraper/spiders/mercadolivre.py)
