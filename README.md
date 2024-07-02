@@ -18,6 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Tratamento e armazenamento em um banco de dados
 - [x] EDA
 - [x] Modelagem
+- [ ] Testando o Modelo
 - [ ] Deploy Streamlit
 
 ## Principais Tecnologias Utilizadas
@@ -97,6 +98,7 @@ Os dados são salvos em um arquivos  [jsonl](https://github.com/RailanDeivid/Mer
 ## Tratamento dos dados
 Os tratamentos dos dados foram feitos no arquivo [main.py](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/data_transformation/main.py) onde é feito todos os tratamentos possiveis e o armazenamento em um banco de dados [SQLite](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/tree/main/data). 
 
+
 ## Análise Exploratória de Dados (EDA)
 
 <h3 align="center"> 
@@ -165,3 +167,95 @@ O que os gráficos de distribuição de todas as variáveis nos mostram?
 * Valor vs. Quilometragem (KM): Este gráfico apresenta como o preço dos carros se relaciona com a quilometragem. Carros com menos quilômetros rodados tendem a ser mais caros, indicando que a menor utilização aumenta o valor de mercado.
 
 Todo o processo de análise dos dados estão no notebook [EDA.ipynb](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/analysis/EDA.ipynb)
+
+## Modelagem
+Foi utilizado o algoritmo de Regressão linear.
+
+``Mean Squared Error: 0.0922269833657049 `` 
+
+``R² Score: 0.7180681372041721``
+
+Um trecho das analises feitas:
+
+* Análise de Resíduos
+
+![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/bd92aa46-1d01-4949-af0e-fdd5ac84d6fc)
+
+* Resíduos vs. Previsões
+
+    * Centralização dos Resíduos:
+
+        * Os resíduos devem estar centralizados em torno da linha horizontal, indicando que o modelo não está sistematicamente subestimando ou superestimando os valores.
+
+    * Dispersão Aleatória:
+
+        * A dispersão dos resíduos deve ser aleatória, sem formar padrões claros. Isso sugere que o modelo está capturando bem a relação entre as variáveis preditoras e a variável alvo.
+        * No gráfico, os resíduos estão razoavelmente bem distribuídos em torno de zero, indicando que o modelo está fazendo previsões bastante precisas na média.
+        
+    * Homoscedasticidade:
+
+        * A variância dos resíduos deve ser constante ao longo de todas as previsões. No gráfico, os resíduos parecem manter uma variância relativamente constante, embora haja alguns outliers.
+          
+
+
+![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/32449fa0-d1a2-43a7-93ab-6ef033dbd9d1)
+
+* Histograma dos Resíduos
+    * Distribuição Normal dos Resíduos:
+
+        * Um modelo regressão deve ter resíduos que seguem aproximadamente uma distribuição normal (gaussiana) centrada em torno de zero.
+        O histograma mostra que a maioria dos resíduos está próxima de zero, com uma forma que se aproxima de uma distribuição normal, o que é um bom sinal.
+
+    * Simetria:
+
+        * O gráfico é relativamente simétrico em torno de zero, o que sugere que os erros de previsão são distribuídos de forma equilibrada para cima e para baixo.
+
+    * Outliers:
+
+        * Há alguns resíduos mais extremos nos dois lados do gráfico. Embora alguns outliers sejam esperados, muitos outliers podem indicar que o modelo pode estar falhando em capturar todas as nuances dos dados.
+          
+
+* Curva de Aprendizado
+
+  ![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/1d5819d1-5908-4fb4-8a9f-0e0d7eb771c6)
+
+  * Pontuação de Treinamento (Curva Vermelha):
+
+    * Inicialmente, a pontuação R² é alta, o que indica que o modelo está se ajustando muito bem aos dados de treinamento.
+      
+      À medida que o tamanho do conjunto de treinamento aumenta, a pontuação de treinamento diminui ligeiramente, mas permanece relativamente alta. Isso é esperado, pois com mais dados, o modelo deve generalizar melhor, 
+      e o ajuste perfeito aos dados de treinamento (overfitting) se torna menos provável.
+
+* Pontuação de Validação (Curva Verde):
+
+  * A pontuação R² do conjunto de validação começa mais baixa do que a pontuação de treinamento e aumenta um pouco com o aumento do conjunto de treinamento.
+  * A pontuação de validação estabiliza em torno de um valor específico, o que indica que o modelo está atingindo um ponto de saturação onde mais dados não melhoram significativamente o desempenho de validação.
+
+* Conclusões
+    * Overfitting Inicial: No início, a diferença entre as pontuações de treinamento e validação é grande, sugerindo que o modelo está overfitting (ajustando-se excessivamente aos dados de treinamento).
+    * Melhora na Generalização: Com o aumento do tamanho do conjunto de treinamento, a diferença entre as pontuações de treinamento e validação diminui, indicando que o modelo está generalizando melhor.
+    * Limite de Desempenho: A estabilização da pontuação de validação sugere que o modelo está se aproximando do seu limite de desempenho com os dados disponíveis.
+    
+  Em resumo, este gráfico mostra que, inicialmente, o modelo está overfitting, mas à medida que mais dados de treinamento são adicionados, o modelo começa a generalizar melhor, reduzindo a diferença entre as pontuações de treinamento e validação.
+
+
+Todo o processo de modelagem estão no notebook [modelagem.ipynb](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/modelagem/modelagem.ipynb)
+
+
+## Testando o Modelo
+
+<h4 align="center"> 
+    :construction:  Parte em construção  :construction:
+</h4>
+
+
+
+
+
+
+
+
+
+
+
+
