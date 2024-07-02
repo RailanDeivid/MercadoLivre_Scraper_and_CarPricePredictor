@@ -137,13 +137,13 @@ lista_map_combustivel = {
     'Diesel': 'diesel',
     'Flex': 'flex',
     'Álcool e gás natural': 'flex',
-    'Híbrido': 'híbrido',
+    'Híbrido': 'hibrido',
     'Tetra-combustible': 'outros',
-    'Elétrico': 'elétrico',
-    'Gasolina e gás natural': 'gasolina e gás natural',
-    'Álcool': 'álcool',
-    'Gasolina e elétrico': 'híbrido',
-    'Híbrido/Gasolina': 'híbrido',
+    'Elétrico': 'eletrico',
+    'Gasolina e gás natural': 'flex',
+    'Álcool': 'alcool',
+    'Gasolina e elétrico': 'hibrido',
+    'Híbrido/Gasolina': 'hibrido',
     'FLEX': 'flex',
 }
 df['tipo_combustivel'] = df['tipo_combustivel'].map(lista_map_combustivel)
@@ -165,12 +165,12 @@ df['vidros_eletricos'] = df['vidros_eletricos'].fillna('Não')
 # Ajustando nomes 
 lista_map_transmissao = {
     'Manual': 'Manual',
-    'Automática': 'Automática',
-    'Automática sequencial': 'Automática',
-    'Semiautomática': 'Semiautomática',
-    'AUTOMÁTICO': 'Automática',
-    'Automatizado': 'Automática',
-    'Automático': 'Automática',
+    'Automática': 'Automatica',
+    'Automática sequencial': 'Automatica',
+    'Semiautomática': 'Semiautomatica',
+    'AUTOMÁTICO': 'Automatica',
+    'Automatizado': 'Automatica',
+    'Automático': 'Automatica',
 
 }
 df['transmissao'] = df['transmissao'].map(lista_map_transmissao)
