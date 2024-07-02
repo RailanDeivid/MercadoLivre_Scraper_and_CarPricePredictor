@@ -17,7 +17,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Scrape dos dados
 - [x] Tratamento e armazenamento em um banco de dados
 - [x] EDA
-- [ ] Modelagem
+- [x] Modelagem
 - [ ] Deploy Streamlit
 
 ## Principais Tecnologias Utilizadas
