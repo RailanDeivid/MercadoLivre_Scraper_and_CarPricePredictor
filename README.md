@@ -43,9 +43,11 @@ Transformações dos dados: [main.py](https://github.com/RailanDeivid/MercadoLiv
 
 Analises dos dados: [EDA.ipynb](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/analysis/EDA.ipynb)
 
+Modelagem: [modelagemipynb](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/modelagem/modelagem.ipynb)
+
 Dados: [data](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/tree/main/data)
 
-## Scraper dos dados
+# <img src="https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/fc4a6eb1-bd05-43b5-9b83-e7527511e8f5" alt="image" width="35" height="35"> Scraper dos dados
 Foi utilizada a biblioteca ``Scrapy`` para obter os dados dos anuncios de veiculos do Mercado Livre. Os registros são obtidos pelo script [Mercadolivre.py](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/scraper/spiders/mercadolivre.py) Onde é feito a raspagem, entrando e cada um dos 49 anuncios por pagina e pegando as informações de cado anuncio, anuncios por marca e estado.
 Um trecho do código utilizado:
 ```
@@ -95,11 +97,15 @@ class MercadolivreSpider(scrapy.Spider):
 
 Os dados são salvos em um arquivos  [jsonl](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/tree/main/data)
 
-## Tratamento dos dados
+# <img src="https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/d869314d-a93b-447c-9ccb-4dfaf5a27f97" alt="image" width="35" height="35"> Tratamento dos dados
+
+
+
 Os tratamentos dos dados foram feitos no arquivo [main.py](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/data_transformation/main.py) onde é feito todos os tratamentos possiveis e o armazenamento em um banco de dados [SQLite](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/tree/main/data). 
 
 
-## Análise Exploratória de Dados (EDA)
+
+# <img src="https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/be471f55-6c2b-46cb-bda2-eefb60d50ae8" alt="image" width="35" height="35"> Análise Exploratória de Dados (EDA)
 
 <h3 align="center"> 
     ⚠️ Apenas um trecho das analises feitas  ⚠️
@@ -168,8 +174,9 @@ O que os gráficos de distribuição de todas as variáveis nos mostram?
 
 Todo o processo de análise dos dados estão no notebook [EDA.ipynb](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/analysis/EDA.ipynb)
 
-## Modelagem
+# <img src="https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/94df765c-3450-47f4-9260-fa12bd4f3e76" alt="image" width="35" height="35"> Modelagem
 Foi utilizado o algoritmo de Regressão linear.
+
 
 ``Mean Squared Error: 0.0922269833657049 `` 
 
