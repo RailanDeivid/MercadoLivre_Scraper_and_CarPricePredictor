@@ -8,7 +8,12 @@ import numpy as np
 import locale
 
 # Configurando locale para português do Brasil
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+try:
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+except locale.Error as e:
+    print(f"Erro ao definir o locale: {e}")
+    # Lidar com a exceção, por exemplo, usar um locale alternativo ou padrão
+    locale.setlocale(locale.LC_ALL, '')
 
 # Carregando o modelo pré-treinado
 model_path = os.path.abspath(os.path.join(os.getcwd(), '..', 'models', 'previsao_precos_veiculos_20240702.joblib'))
