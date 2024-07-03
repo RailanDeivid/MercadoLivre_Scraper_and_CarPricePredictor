@@ -1,7 +1,6 @@
-warnings
 joblib 
 os
 streamlit 
-pandas 
+pandas
 numpy 
 locale
