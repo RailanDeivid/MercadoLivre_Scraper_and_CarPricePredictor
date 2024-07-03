@@ -153,6 +153,8 @@ df['tipo_combustivel'] = df['tipo_combustivel'].map(lista_map_combustivel)
 df['motor'] = df['motor'].str.extract(r'(\d+\.\d+|\d+)')[0]
 df = df.loc[df['motor'] != '0.0']
 df = df.dropna(subset=['motor'])
+valores_indesejados = ['1132897306', '5103327', '94']
+df = df[~df['motor'].isin(valores_indesejados)]
 # ----------------------------------------------------------------- coluna: ar_condicionado
 # Substituindo dados null pra 'Sim'
 df['ar_condicionado'] = df['ar_condicionado'].fillna('Sim')

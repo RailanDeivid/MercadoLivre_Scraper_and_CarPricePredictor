@@ -18,7 +18,6 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Tratamento e armazenamento em um banco de dados
 - [x] EDA
 - [x] Modelagem
-- [ ] Testando o Modelo
 - [ ] Deploy Streamlit
 
 ## Principais Tecnologias Utilizadas
@@ -178,9 +177,9 @@ Todo o processo de análise dos dados estão no notebook [EDA.ipynb](https://git
 Foi utilizado o algoritmo de Regressão linear.
 
 
-``Mean Squared Error: 0.0922269833657049 `` 
+``Mean Squared Error: 0.09384 `` 
 
-``R² Score: 0.7180681372041721``
+``R² Score: 0.7161``
 
 Um trecho das analises feitas:
 
@@ -249,7 +248,7 @@ Um trecho das analises feitas:
 Todo o processo de modelagem estão no notebook [modelagem.ipynb](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/blob/main/src/modelagem/modelagem.ipynb)
 
 
-## Testando o Modelo
+## Deploy Streamlit
 
 <h4 align="center"> 
     :construction:  Parte em construção  :construction:
