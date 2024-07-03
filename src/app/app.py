@@ -9,13 +9,13 @@ import numpy as np
 
 # Carregando o modelo
 model_path = os.path.abspath(os.path.join(os.getcwd(), 'previsao_precos_veiculos_20240702.joblib'))
-model = joblib.load(model_path)
+model = joblib.load('previsao_precos_veiculos_20240702.joblib')
 model = model['model']
 
 
 # Carregando dados adicionais
 data_path = os.path.abspath(os.path.join(os.getcwd(), 'data_tratados.parquet'))
-df_dados_adicionais = pd.read_parquet(data_path)
+df_dados_adicionais = pd.read_parquet('data_tratados.parquet')
 
 # Extraindo as opções únicas para o estado (UF)
 ufs = df_dados_adicionais['uf'].unique().tolist()
