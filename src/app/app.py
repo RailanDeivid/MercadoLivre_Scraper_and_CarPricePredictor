@@ -9,11 +9,9 @@ import numpy as np
 
 # Carregando o modelo pré-treinado
 model_path = os.path.abspath(os.path.join(os.getcwd(), 'previsao_precos_veiculos_20240702.joblib'))
-# model = joblib.load('previsao_precos_veiculos_20240702.joblib')
-# model = model['model']
-model_path = 'previsao_precos_veiculos_20240702.joblib'
-model = joblib.load(model_path)
+model = joblib.load('previsao_precos_veiculos_20240702.joblib')
 model = model['model']
+
 
 # Carregando dados adicionais
 data_path = os.path.abspath(os.path.join(os.getcwd(), 'data_tratados.parquet'))
@@ -96,3 +94,6 @@ if st.button('Prever Preço'):
     except Exception as e:
         st.error(f"Erro ao fazer a previsão: {e}")
 
+# Executar a aplicação Streamlit
+if __name__ == '__main__':
+    st.set_option('deprecation.showfileUploaderEncoding', False)
