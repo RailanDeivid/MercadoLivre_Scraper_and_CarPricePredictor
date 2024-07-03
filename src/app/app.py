@@ -9,7 +9,7 @@ import numpy as np
 
 # Carregando o modelo pré-treinado
 #model_path = os.path.abspath(os.path.join(os.getcwd(), '..', 'models', 'previsao_precos_veiculos_20240702.joblib'))
-model = jb.load('previsao_precos_veiculos_20240702.joblib')
+model = jb.load('../models/previsao_precos_veiculos_20240702.joblib')
 model = model['model']
 
 # Carregando dados adicionais
