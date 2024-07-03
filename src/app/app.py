@@ -94,6 +94,6 @@ if st.button('Prever Preço'):
     except Exception as e:
         st.error(f"Erro ao fazer a previsão: {e}")
 
-# Executar a aplicação Streamlit
+
 if __name__ == '__main__':
     st.set_option('deprecation.showfileUploaderEncoding', False)
