@@ -9,7 +9,7 @@ import pickle
 
 # Carregando o modelo
 #model_path = os.path.abspath(os.path.join(os.getcwd(), 'previsao_precos_veiculos_20240702.joblib'))
-model = joblib.load('previsao_precos_veiculos_20240702.joblib','r')
+#model = joblib.load('previsao_precos_veiculos_20240702.joblib','r')
 # model = model['model']
 model = pd.read_pickle('previsao_precos_veiculos_20240702.pkl')
 model = model['model']
