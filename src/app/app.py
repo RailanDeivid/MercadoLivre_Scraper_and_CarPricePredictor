@@ -5,14 +5,19 @@ import os
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import pickle
 
 # Carregando o modelo
 #model_path = os.path.abspath(os.path.join(os.getcwd(), 'previsao_precos_veiculos_20240702.joblib'))
-model = joblib.load('previsao_precos_veiculos_20240702.joblib','r')
-model = model['model']
+# model = joblib.load('previsao_precos_veiculos_20240702.joblib','r')
+# model = model['model']
 
+# Load the model
+with open('previsao_precos_veiculos_20240702.pkl', 'rb') as file:
+    model_data = pickle.load(file)
 
+# Extract the model from the dictionary
+model = model_data['model']
 # Carregando dados adicionais
 #data_path = os.path.abspath(os.path.join(os.getcwd(), 'data_tratados.parquet'))
 df_dados_adicionais = pd.read_parquet('data_tratados.parquet')
