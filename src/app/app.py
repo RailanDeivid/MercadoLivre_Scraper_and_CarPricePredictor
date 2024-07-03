@@ -5,15 +5,7 @@ import os
 import streamlit as st
 import pandas as pd
 import numpy as np
-import locale
 
-# Configurando locale para português do Brasil
-try:
-    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-except locale.Error as e:
-    print(f"Erro ao definir o locale: {e}")
-    # Lidar com a exceção, por exemplo, usar um locale alternativo ou padrão
-    locale.setlocale(locale.LC_ALL, '')
 
 # Carregando o modelo pré-treinado
 model_path = os.path.abspath(os.path.join(os.getcwd(), '..', 'models', 'previsao_precos_veiculos_20240702.joblib'))
@@ -86,13 +78,18 @@ input_data = pd.DataFrame({
     'Semiautomatica': [1 if transmissao == 'Semiautomatica' else 0]
 })
 
+
+
+def formatar_moeda_brl(valor):
+    valor_formatado = f"R$ {valor:,.2f}".replace('.', '#').replace(',', '.').replace('#', ',')
+    return valor_formatado
 # tratamentos da previsão
 if st.button('Prever Preço'):
     try:
         prediction = model.predict(input_data)
         predicted_price = np.exp(prediction[0])  # Transformação inversa para obter o preço previsto
-        formatted_price = locale.currency(predicted_price, grouping=True)
-        st.success(f"O preço previsto de venda é:  {formatted_price}")
+        formatted_price = formatted_price = formatar_moeda_brl(predicted_price)
+        st.success(f"O preço previsto de venda é:   {formatted_price}")
     except Exception as e:
         st.error(f"Erro ao fazer a previsão: {e}")
 
