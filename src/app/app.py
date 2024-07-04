@@ -32,7 +32,7 @@ st.markdown("""
             border-radius: 10px;
             padding: 10px;
             text-align: center;
-            font-size: 50px;
+            font-size: 45px;
         }
     </style>
     """, unsafe_allow_html=True)
