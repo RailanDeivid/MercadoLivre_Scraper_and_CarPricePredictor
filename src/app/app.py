@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 # Carregando o modelo
-model = joblib.load('previsao_precos_veiculos_20240702.joblib','r')
+model = joblib.load('previsao_precos_veiculos_20240702.joblib')
 model = model['model']
 
 # Carregando dados adicionais
