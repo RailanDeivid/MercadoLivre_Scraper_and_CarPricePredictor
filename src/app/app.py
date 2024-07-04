@@ -6,12 +6,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+
 # Carregando o modelo
-model = joblib.load('previsao_precos_veiculos_20240702.joblib')
+model = joblib.load('./data/previsao_precos_veiculos_20240702.joblib')
 model = model['model']
 
 # Carregando dados adicionais
-df_dados_adicionais = pd.read_parquet('data_tratados.parquet')
+df_dados_adicionais = pd.read_parquet('./data/data_tratados.parquet')
 
 # Extraindo as opções únicas para o estado (UF)
 ufs = df_dados_adicionais['uf'].unique().tolist()
@@ -89,7 +90,3 @@ if st.button('Prever Preço'):
         st.success(f"O preço previsto de venda é:   {formatted_price}")
     except Exception as e:
         st.error(f"Erro ao fazer a previsão: {e}")
-
-
-if __name__ == '__main__':
-    st.set_option('deprecation.showfileUploaderEncoding', False)
