@@ -112,8 +112,6 @@ st.markdown("""
         width: 100%;
         padding: 15px;
         font-size: 30px;
-    }    
-    .stAlert {
         text-align: center;
         font-size: 30px;
     }
