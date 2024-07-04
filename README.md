@@ -12,13 +12,13 @@ Este projeto realiza web scraping de anúncios de veículos no Mercado Livre e p
     :construction:  Projeto em construção  :construction:
 </h4>
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+Etapas do projeto:
 
 - [x] Scrape dos dados
 - [x] Tratamento e armazenamento em um banco de dados
 - [x] EDA
 - [x] Modelagem
-- [ ] Deploy Streamlit
+- [x] Deploy Streamlit
 
 ## Principais Tecnologias Utilizadas
 
