@@ -249,7 +249,9 @@ Todo o processo de modelagem estão no notebook [modelagem.ipynb](https://github
 
 Link app: [carprice-predicto](https://carprice-predicto.streamlit.app/)
 
-![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/72213a20-4f99-4dc5-994d-d17273307cc9)
+![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/8702b19d-ca81-40de-a40e-d30123111a81)
+
+
 
 
 
