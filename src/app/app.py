@@ -7,15 +7,17 @@ import pandas as pd
 import numpy as np
 
 path = os.path.dirname(__file__)
-my_file = path+'/data/previsao_precos_veiculos_20240702.joblib'
+my_model = path+'/data/previsao_precos_veiculos_20240702.joblib'
 
 # Carregando o modelo
 #model = joblib.load('./data/previsao_precos_veiculos_20240702.joblib')
-model = joblib.load(my_file)
+model = joblib.load(my_model)
 model = model['model']
 
+path = os.path.dirname(__file__)
+my_data = path+'/data/data_tratados.parquet'
 # Carregando dados adicionais
-df_dados_adicionais = pd.read_parquet('./data/data_tratados.parquet')
+df_dados_adicionais = pd.read_parquet(my_data)
 
 # Extraindo as opções únicas para o estado (UF)
 ufs = df_dados_adicionais['uf'].unique().tolist()
