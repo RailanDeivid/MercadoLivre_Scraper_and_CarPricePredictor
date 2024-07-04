@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 path = os.path.dirname(__file__)
-my_file = path+'\data\previsao_precos_veiculos_20240702.joblib'
+my_file = path+'/data/previsao_precos_veiculos_20240702.joblib'
 
 # Carregando o modelo
 #model = joblib.load('./data/previsao_precos_veiculos_20240702.joblib')
