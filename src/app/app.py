@@ -1,5 +1,3 @@
-import warnings
-warnings.filterwarnings("ignore")
 import joblib as joblib
 import os
 import streamlit as st
