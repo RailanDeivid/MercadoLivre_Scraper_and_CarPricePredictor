@@ -36,7 +36,7 @@ st.markdown("""
         }
     </style>
     """, unsafe_allow_html=True)
-st.markdown("<h1 class='rounded-title'>Previsão de Preço de Vendas Carros</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='rounded-title'>Previsão de Preço de Vendas de Carros</h1>", unsafe_allow_html=True)
 
 # setando titulos e informações
 st.markdown("<h1 style='font-size: 30px;'>Informações do Modelo</h1>", unsafe_allow_html=True)
