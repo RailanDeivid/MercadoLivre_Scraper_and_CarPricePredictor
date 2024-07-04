@@ -1,5 +1,5 @@
 <p align="center">
-<img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+<img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=GREEN&style=for-the-badge"/>
 </p>
 
 # Scrape dos Dados Anuncios de Veiculos do MercadoLivre e Predição dos valores de Vendas.
@@ -7,10 +7,6 @@
 ## Descrição
 
 Este projeto realiza web scraping de anúncios de veículos no Mercado Livre e prevê valores de vendas usando um modelo de machine learning. O projeto é dividido em várias partes, incluindo coleta de dados, transformação de dados, análise exploratória e predição de preços.
-
-<h4 align="center"> 
-    :construction:  Projeto em construção  :construction:
-</h4>
 
 Etapas do projeto:
 
