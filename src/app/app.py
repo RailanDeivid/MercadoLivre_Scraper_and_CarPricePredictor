@@ -89,6 +89,7 @@ input_data = pd.DataFrame({
     'ar_condicionado': [ar_condicionado],
     'KM_LOG': [np.log(KM + 1)],
     'ano': [ano],
+    'motor': [motor],
     'alcool': [1 if combustivel == 'alcool' else 0],
     'diesel': [1 if combustivel == 'diesel' else 0],
     'eletrico': [1 if combustivel == 'eletrico' else 0],

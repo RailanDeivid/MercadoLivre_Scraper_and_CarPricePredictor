@@ -181,59 +181,60 @@ Um trecho das analises feitas:
 
 * Análise de Resíduos
 
-![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/bd92aa46-1d01-4949-af0e-fdd5ac84d6fc)
+![alt text](image-2.png)
 
 * Resíduos vs. Previsões
 
     * Centralização dos Resíduos:
 
-        * Os resíduos devem estar centralizados em torno da linha horizontal, indicando que o modelo não está sistematicamente subestimando ou superestimando os valores.
+        * Os resíduos estão centralizados em torno da linha horizontal de zero. Isso indica que o modelo não está sistematicamente subestimando ou superestimando os valores. 
+        * A centralização sugere que, em média, os erros de previsão estão distribuídos igualmente  em torno de zero.
 
     * Dispersão Aleatória:
 
-        * A dispersão dos resíduos deve ser aleatória, sem formar padrões claros. Isso sugere que o modelo está capturando bem a relação entre as variáveis preditoras e a variável alvo.
-        * No gráfico, os resíduos estão razoavelmente bem distribuídos em torno de zero, indicando que o modelo está fazendo previsões bastante precisas na média.
+        * A dispersão dos resíduos parece razoavelmente aleatória, sem padrões claros visíveis.
+        * Isso sugere que o modelo está capturando bem a relação entre as variáveis preditoras e a variável alvo. A falta de padrões indica que os erros são independentes e não há tendências não capturadas pelo modelo.
         
     * Homoscedasticidade:
 
         * A variância dos resíduos deve ser constante ao longo de todas as previsões. No gráfico, os resíduos parecem manter uma variância relativamente constante, embora haja alguns outliers.
           
 
-
-![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/32449fa0-d1a2-43a7-93ab-6ef033dbd9d1)
+![alt text](image-1.png)
 
 * Histograma dos Resíduos
     * Distribuição Normal dos Resíduos:
 
-        * Um modelo regressão deve ter resíduos que seguem aproximadamente uma distribuição normal (gaussiana) centrada em torno de zero.
-        O histograma mostra que a maioria dos resíduos está próxima de zero, com uma forma que se aproxima de uma distribuição normal, o que é um bom sinal.
+        * O histograma dos resíduos mostra uma maioria de resíduos próximos de zero, com uma forma que se aproxima de uma distribuição normal.
 
     * Simetria:
 
-        * O gráfico é relativamente simétrico em torno de zero, o que sugere que os erros de previsão são distribuídos de forma equilibrada para cima e para baixo.
+        * A simetria sugere que os erros de previsão são distribuídos de forma equilibrada para cima e para baixo, indicando que o modelo não tem um viés sistemático em uma direção ou outra.
 
     * Outliers:
 
         * Há alguns resíduos mais extremos nos dois lados do gráfico. Embora alguns outliers sejam esperados, muitos outliers podem indicar que o modelo pode estar falhando em capturar todas as nuances dos dados.
+
           
 
 * Curva de Aprendizado
 
-  ![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/1d5819d1-5908-4fb4-8a9f-0e0d7eb771c6)
+![alt text](image.png)
 
-  * Pontuação de Treinamento (Curva Vermelha):
+* Pontuação de Treinamento:
 
-    * Inicialmente, a pontuação R² é alta, o que indica que o modelo está se ajustando muito bem aos dados de treinamento.
-      
-      À medida que o tamanho do conjunto de treinamento aumenta, a pontuação de treinamento diminui ligeiramente, mas permanece relativamente alta. Isso é esperado, pois com mais dados, o modelo deve generalizar melhor, 
-      e o ajuste perfeito aos dados de treinamento (overfitting) se torna menos provável.
+  A Pontuação de Treinamento em torno de 0.80 e diminui ligeiramente para cerca de 0.75 conforme o tamanho do conjunto de treinamento aumenta.
+  Essa diminuição é esperada e indica que o modelo está se ajustando bem ao conjunto de treinamento, mas com um pouco de regularização à medida que mais dados são adicionados.
 
-* Pontuação de Validação (Curva Verde):
 
-  * A pontuação R² do conjunto de validação começa mais baixa do que a pontuação de treinamento e aumenta um pouco com o aumento do conjunto de treinamento.
-  * A pontuação de validação estabiliza em torno de um valor específico, o que indica que o modelo está atingindo um ponto de saturação onde mais dados não melhoram significativamente o desempenho de validação.
+* Pontuação de Validação:
+
+  * A Pontuação de Validação começa em torno de 0.65 e sobe para cerca de 0.70.
+  * Essa melhora indica que o modelo está aprendendo e generalizando melhor com o aumento do tamanho do conjunto de treinamento.
+  * A variabilidade na pontuação de validação é significativa, mas não excessivamente grande, indicando uma consistência razoável.
 
 * Conclusões
+    * O novo gráfico mostra uma situação mais desejável. A pontuação R² tanto para o conjunto de treinamento quanto para o de validação está acima de 0.60, o que indica que o modelo está capturando bem os padrões nos dados.
     * Overfitting Inicial: No início, a diferença entre as pontuações de treinamento e validação é grande, sugerindo que o modelo está overfitting (ajustando-se excessivamente aos dados de treinamento).
     * Melhora na Generalização: Com o aumento do tamanho do conjunto de treinamento, a diferença entre as pontuações de treinamento e validação diminui, indicando que o modelo está generalizando melhor.
     * Limite de Desempenho: A estabilização da pontuação de validação sugere que o modelo está se aproximando do seu limite de desempenho com os dados disponíveis.
