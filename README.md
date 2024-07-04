@@ -250,15 +250,9 @@ Todo o processo de modelagem estão no notebook [modelagem.ipynb](https://github
 
 ## Deploy Streamlit
 
-<h4 align="center"> 
-    :construction:  Parte em construção  :construction:
-</h4>
+Link app: [carprice-predicto](https://carprice-predicto.streamlit.app/)
 
-
-
-
-
-
+![alt text](image.png)
 
 
 
