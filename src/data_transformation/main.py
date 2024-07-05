@@ -10,7 +10,7 @@ db_path = os.path.abspath(os.path.join(os.getcwd(), '..', '..', 'data', 'ML_db.d
 # Carregando dados
 df = pd.read_json(json_path, lines=True)
 
-# ------------ Tratamento dos dados ----------------------------------------- #
+# ---------------------------------------------------- Tratamento dos dados ----------------------------------------- #
 
 # ----- Tratando os dados nulos
 # Dismenbrando o modelo da marca na coluna 'modelo', pois já tenho uma coluna com a marca
