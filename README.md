@@ -118,6 +118,8 @@ As seguintes bibliotecas foram importadas para a análise:
 Criação de histogramas para as variáveis numéricas: valor, ano e KM, para observar a distribuição dos dados.
 
 ![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/6909b6dc-166a-467b-9018-da7d8b6b6f65)
+
+
 Os gráficos representam a distribuição de frequência de três variáveis numéricas: valor, ano e KM.
 
 1. Distribuição de valor:
@@ -139,6 +141,8 @@ O KM mínimo é de aproximadamente 0, enquanto o KM máximo é de aproximadament
 * Analisando distribuição dos dados usando um BOXPLOT
   
 ![image](https://github.com/RailanDeivid/MercadoLivre_Scraper_and_CarPricePredictor/assets/78448568/c0dbabf9-4228-4e9a-9475-18f11aef7376)
+
+
 Os gráficos representam Análise de Distribuição dos Dados com Boxplots: valor, ano e KM.
 
 1. valor:
